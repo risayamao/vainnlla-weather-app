@@ -46,10 +46,21 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
-
-let city = "Tokyo";
-let apiKey = "409fe5d78352336165401636211d618a";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?
+function search(city) {
+  let apiKey = "409fe5d78352336165401636211d618a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?
 q=${city}&units=metric&appid=${apiKey}`;
 
-axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function hundleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", hundleSubmit);
+
+search("Tokyo");
