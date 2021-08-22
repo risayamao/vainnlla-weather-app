@@ -22,8 +22,6 @@ function formatDate(timestamp) {
 }
 
 function displayTemperature(response) {
-  console.log(response.data);
-  console.log(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   let cityElement = document.querySelector("#city");
@@ -40,12 +38,18 @@ function displayTemperature(response) {
 
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
+let city = "Tokyo";
 let apiKey = "409fe5d78352336165401636211d618a";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?
-q=tokyo&units=metric&appid=${apiKey}`;
-
-console.log(apiUrl);
+q=${city}&units=metric&appid=${apiKey}`;
 
 axios.get(apiUrl).then(displayTemperature);
