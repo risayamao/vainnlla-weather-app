@@ -60,7 +60,7 @@ function hundleSubmit(event) {
   search(cityInputElement.value);
 }
 
+let celsiusTemperature = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", hundleSubmit);
-
-search("Tokyo");
