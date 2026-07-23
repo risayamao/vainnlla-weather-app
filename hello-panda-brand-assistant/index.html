@@ -227,19 +227,20 @@
 </head>
 <body>
 
+
 <header>
   <div class="head-in">
     <div class="mark" aria-hidden="true">
       <svg viewBox="0 0 40 40" fill="none">
-        <circle cx="10" cy="11" r="6" fill="#1C1512"/><circle cx="30" cy="11" r="6" fill="#1C1512"/>
-        <circle cx="20" cy="22" r="14" fill="#fff"/>
-        <ellipse cx="13.5" cy="20" rx="4" ry="5" fill="#1C1512"/><ellipse cx="26.5" cy="20" rx="4" ry="5" fill="#1C1512"/>
-        <circle cx="14" cy="20.5" r="1.5" fill="#fff"/><circle cx="26" cy="20.5" r="1.5" fill="#fff"/>
-        <ellipse cx="20" cy="26" rx="2.4" ry="1.7" fill="#1C1512"/>
+        <circle cx="10" cy="11" r="6" fill="#1C1512"></circle><circle cx="30" cy="11" r="6" fill="#1C1512"></circle>
+        <circle cx="20" cy="22" r="14" fill="#fff"></circle>
+        <ellipse cx="13.5" cy="20" rx="4" ry="5" fill="#1C1512"></ellipse><ellipse cx="26.5" cy="20" rx="4" ry="5" fill="#1C1512"></ellipse>
+        <circle cx="14" cy="20.5" r="1.5" fill="#fff"></circle><circle cx="26" cy="20.5" r="1.5" fill="#fff"></circle>
+        <ellipse cx="20" cy="26" rx="2.4" ry="1.7" fill="#1C1512"></ellipse>
       </svg>
     </div>
     <div class="head-txt">
-      <b>Hello Panda</b><span data-t="brandsub">Brand Decision Assistant</span>
+      <b>Hello Panda</b><span data-t="brandsub">ブランド判断アシスタント</span>
     </div>
     <div class="head-sp"></div>
     <span class="conf" data-t="conf">社外秘 · CONFIDENTIAL</span>
@@ -253,11 +254,11 @@
 <div class="wrap">
   <div class="searchbar">
     <div class="search">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
-      <input id="q" type="text" autocomplete="off" spellcheck="false">
-      <button class="clr" id="clr" aria-label="clear">&times;</button>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+      <input id="q" type="text" autocomplete="off" spellcheck="false" placeholder="質問・キーワードで検索（例：ミルクチョコ、ロゴ、寝そべり…）">
+      <button class="clr" id="clr" aria-label="clear" style="display: none;">×</button>
     </div>
-    <div id="search-status" aria-live="polite"></div>
+    <div id="search-status" aria-live="polite" style="display: none;"></div>
   </div>
 
   <main>
@@ -265,47 +266,180 @@
       <div class="card principle">
         <div class="pk" aria-hidden="true">!</div>
         <div>
-          <p class="lead" data-t="prin_lead"></p>
-          <p data-t="prin_body"></p>
+          <p class="lead" data-t="prin_lead">委任の原則</p>
+          <p data-t="prin_body">新ブランドガイドラインに準拠していれば、<b>現地で判断してOK</b>。迷ったら Global HP Brand Manager <span class="who">加納 麻衣（Mai Kano）</span>に相談してください。</p>
         </div>
       </div>
     </section>
 
     <section id="sec-check">
       <p class="eyebrow" data-t="check_eye">Self-check</p>
-      <h2 data-t="check_h"></h2>
-      <p class="sec-note" data-t="check_note"></p>
-      <div class="types" id="types"></div>
+      <h2 data-t="check_h">何を確認したい？</h2>
+      <p class="sec-note" data-t="check_note">問い合わせの性質で4タイプに分かれます。該当するタイプを選ぶと、セルフチェックがその場でできます。</p>
+      <div class="types" id="types">
+    <button class="card type" data-type="A" aria-expanded="false">
+      <span class="badge">A</span>
+      <span><h3>アセット使用・表現の可否</h3><p>店頭販促物・SNSキャンペーンKV・ノベルティ・什器・マスコット改変</p></span>
+    </button>
+    <button class="card type" data-type="B" aria-expanded="false">
+      <span class="badge">B</span>
+      <span><h3>SNSルーティン投稿チェック</h3><p>月次SNS投稿計画（Editorial Plan）の承認依頼</p></span>
+    </button>
+    <button class="card type" data-type="C" aria-expanded="false">
+      <span class="badge">C</span>
+      <span><h3>承認依頼か、情報共有か</h3><p>調達・物流・価格等の連絡にCCで入っている</p></span>
+    </button>
+    <button class="card type" data-type="D" aria-expanded="false">
+      <span class="badge">D</span>
+      <span><h3>過去アセット参照</h3><p>過去のノベルティ写真・過去キャンペーン・公式素材の照会</p></span>
+    </button></div>
       <div id="panel-slot"></div>
     </section>
 
     <section id="sec-cases">
-      <p class="eyebrow" data-t="cases_eye">Case collection</p>
-      <h2 data-t="cases_h"></h2>
-      <p class="sec-note" data-t="cases_note"></p>
-      <div id="hit-banner" class="guardrail"><span class="gi">⚠️</span><span id="hit-text"></span></div>
-      <div id="cases"></div>
-      <div id="topics-wrap">
-        <h2 style="font-size:16px;margin:26px 0 4px" data-t="topics_h"></h2>
-        <p class="sec-note" data-t="topics_note"></p>
-        <div id="topics"></div>
+      <p class="eyebrow" data-t="cases_eye">事例集</p>
+      <h2 data-t="cases_h">代表7ケース</h2>
+      <p class="sec-note" data-t="cases_note">過去の問い合わせを事例化しました。上の検索で、近いケースを引けます。</p>
+      <div id="hit-banner" class="guardrail" style="display: none;"><span class="gi">⚠️</span><span id="hit-text"></span></div>
+      <div id="cases"><details class="card case searchable" data-kw="editorial plan ep indonesia sns 月次 投稿 承認 委任 february editorial plan｜hello panda february 2026">
+      <summary>
+        <span class="num">#1</span>
+        <span class="ct"><span class="tt">Editorial Plan｜Hello Panda February 2026</span>
+          <span class="meta">インドネシア · SNS（月次EP） · Type B</span></span>
+        <span class="chip cond">条件付きOK → 今後は現地委任可</span>
+        <span class="chev" aria-hidden="true">›</span>
+      </summary>
+      <div class="body">
+        <div class="row"><div class="lbl">何をしようとしたか</div><div class="val">2026年2月の月次SNS投稿計画の承認依頼。同構造の依頼が毎月繰り返し来ている。</div></div>
+        <div class="row"><div class="lbl">判断の理由</div><div class="val">判断軸が固まっているB類型。ブランドガイド・QA・セルフチェックが整えば、基本は現地判断でOK（＝委任の条件）。</div><div class="cites"><span class="mono-tag">A-5.1</span><span class="mono-tag">A-5.2</span></div></div>
+        <div class="row"><div class="lbl">次回チェックポイント</div><div class="val">現地セルフチェック → 沿っていれば現地承認。迷う点だけ加納さんに相談。</div></div>
       </div>
-      <p class="no-hit" id="nohit" data-t="nohit"></p>
+    </details><details class="card case searchable" data-kw="uk stationery novelty 文具 ノベルティ niko 大量 procurement logistics 調達 物流 uk: hp stationery set of 3">
+      <summary>
+        <span class="num">#2</span>
+        <span class="ct"><span class="tt">UK: HP Stationery Set of 3</span>
+          <span class="meta">UK / EU / SG · ノベルティ · Type A+C+D</span></span>
+        <span class="chip ng">新ガイドD-17によりNG</span>
+        <span class="chev" aria-hidden="true">›</span>
+      </summary>
+      <div class="body">
+        <div class="row"><div class="lbl">何をしようとしたか</div><div class="val">HP柄の文具ノベルティ3種。BMが結果的にデザイン＋仕様・調達・物流の判断まで関与することに。</div></div>
+        <div class="row"><div class="lbl">判断の理由</div><div class="val">旧キャラ・ガイド未整備期のケース。新ガイドD-17「1つのビジュアルにニコが大量登場はNG」が明文化されたため、今後はNG。</div><div class="cites"><span class="mono-tag">D-17</span></div></div>
+        <div class="row"><div class="lbl">次回チェックポイント</div><div class="val">調達・物流はCC共有で可（承認依頼が紛れていないか確認）。類似案件はトータルで設計変更が必要。</div></div>
+      </div>
+    </details><details class="card case searchable" data-kw="aeon malaysia milk chocolate ミルクチョコ ミルチ 店頭 pos 共存 ambassador アンバサダー イオンマレーシア 店頭販促物 hp &amp; ミルチ">
+      <summary>
+        <span class="num">#3</span>
+        <span class="ct"><span class="tt">イオンマレーシア 店頭販促物 HP &amp; ミルチ</span>
+          <span class="meta">マレーシア · 店頭販促物 · Type A</span></span>
+        <span class="chip open">判断保留・要議論（継続論点）</span>
+        <span class="chev" aria-hidden="true">›</span>
+      </summary>
+      <div class="body">
+        <div class="row"><div class="lbl">何をしようとしたか</div><div class="val">AEONマレーシア店頭で、HPと明治ミルクチョコが共存する販促物を準備したい。</div></div>
+        <div class="row"><div class="lbl">判断の理由</div><div class="val">パンダがミルクチョコを持つ表現の可否は結論未定。品質期待リスク vs アンバサダー文脈のバランスが未定義（継続論点#3）。</div></div>
+        <div class="row"><div class="lbl">次回チェックポイント</div><div class="val">当面の条件案：パンダがいるのは可だが他商品と離す等のルールが要りそう。→ 加納さんに相談。</div></div>
+      </div>
+    </details><details class="card case searchable" data-kw="malaysia kv comic コミック meiji logo ロゴ 位置 クリアスペース overlap 重なり my social media campaign kv comic">
+      <summary>
+        <span class="num">#4</span>
+        <span class="ct"><span class="tt">MY Social Media Campaign KV Comic</span>
+          <span class="meta">マレーシア · SNS KV（コミック） · Type A</span></span>
+        <span class="chip ng">新ガイドE-1.3 / B-1・B-2によりNG</span>
+        <span class="chev" aria-hidden="true">›</span>
+      </summary>
+      <div class="body">
+        <div class="row"><div class="lbl">何をしようとしたか</div><div class="val">マレーシアSNSキャンペーンのキービジュアル（コミック形式）。meijiロゴの位置検討を含む。</div></div>
+        <div class="row"><div class="lbl">判断の理由</div><div class="val">ロゴのクリアスペース基準がE-1.3・B-1/B-2で明文化済み。「テキスト・画像とロゴが重ならないこと」が判断軸。</div><div class="cites"><span class="mono-tag">E-1.3</span><span class="mono-tag">B-1/B-2</span></div></div>
+        <div class="row"><div class="lbl">次回チェックポイント</div><div class="val">ロゴがテキスト・画像に重ならず、余白・最小サイズを満たせば現地判断でOK。</div></div>
+      </div>
+    </details><details class="card case searchable" data-kw="kindergarten 幼稚園 mascot マスコット 改変 pose 寝そべり 横たわり passive 受動 kindergarten campaign hp design">
+      <summary>
+        <span class="num">#5</span>
+        <span class="ct"><span class="tt">Kindergarten Campaign HP Design</span>
+          <span class="meta">マレーシア · 幼稚園キャンペーン · Type A</span></span>
+        <span class="chip ng">新ガイドD-16 / D-17によりNG</span>
+        <span class="chev" aria-hidden="true">›</span>
+      </summary>
+      <div class="body">
+        <div class="row"><div class="lbl">何をしようとしたか</div><div class="val">幼稚園向けキャンペーンでのHPマスコット改変案の使用可否。</div></div>
+        <div class="row"><div class="lbl">判断の理由</div><div class="val">改変自体は可だが、(1)ぱっと見てHPと識別できる (2)アクティブ設定を外さない が条件。横たわり等の受動ポーズはNG。識別が難しければHPロゴを追加。</div><div class="cites"><span class="mono-tag">D-4</span><span class="mono-tag">D-16</span><span class="mono-tag">D-17</span></div></div>
+        <div class="row"><div class="lbl">次回チェックポイント</div><div class="val">D-4で識別確認、D-16/D-17で改変範囲を確認。満たせば現地判断でOK。</div></div>
+      </div>
+    </details><details class="card case searchable" data-kw="singapore sg sns forwarded 転送 松下 一次判断 character キャラ singapore social media hello panda">
+      <summary>
+        <span class="num">#6</span>
+        <span class="ct"><span class="tt">Singapore Social Media Hello Panda</span>
+          <span class="meta">シンガポール · SNS · Type A</span></span>
+        <span class="chip cond">条件付き → 現地判断可</span>
+        <span class="chev" aria-hidden="true">›</span>
+      </summary>
+      <div class="body">
+        <div class="row"><div class="lbl">何をしようとしたか</div><div class="val">SG SNS投稿でのHPキャラ素材使用の承認依頼（松下さんから転送された案件）。</div></div>
+        <div class="row"><div class="lbl">判断の理由</div><div class="val">キャラ・ロゴがガイドに沿っていればOK。転送ルートでも一次判断は現地で可能。D-16/D-17・B-1/B-2で明文化済み。</div><div class="cites"><span class="mono-tag">D-16/D-17</span><span class="mono-tag">B-1/B-2</span></div></div>
+        <div class="row"><div class="lbl">次回チェックポイント</div><div class="val">現地でガイド適合を確認 → 沿っていれば現地判断。迷う点だけ相談。</div></div>
+      </div>
+    </details><details class="card case searchable" data-kw="apollo アポロ chocorooms きのこの山 eu fixture 什器 共存 cross-brand 横断 banner （参考）アポロ海外什器（欧州展開用）">
+      <summary>
+        <span class="num">#7</span>
+        <span class="ct"><span class="tt">（参考）アポロ海外什器（欧州展開用）</span>
+          <span class="meta">EU · 店頭什器 · Type A</span></span>
+        <span class="chip open">参考・要議論（HP直接判断対象外）</span>
+        <span class="chev" aria-hidden="true">›</span>
+      </summary>
+      <div class="body">
+        <div class="row"><div class="lbl">何をしようとしたか</div><div class="val">アポロの欧州展開用店頭什器。アポロ／きのこの山とのキャラ共存についての確認。</div></div>
+        <div class="row"><div class="lbl">判断の理由</div><div class="val">HPが直接かかわるケースではないが、明治キャラが集合するバナー等は他拠点でも散見。他ブランド共存ルールは未定義（継続論点#2）。</div></div>
+        <div class="row"><div class="lbl">次回チェックポイント</div><div class="val">当面はHP視点の「並置ルール」を定義しつつ、横断判断のエスカレ先を別途決める。</div></div>
+      </div>
+    </details></div>
+      <div id="topics-wrap">
+        <h2 style="font-size:16px;margin:26px 0 4px" data-t="topics_h">⚠️ 継続論点（ここは判断しない）</h2>
+        <p class="sec-note" data-t="topics_note">まだ結論が出ていない論点。該当したら現地判断せず、必ず加納さんに相談してください。</p>
+        <div id="topics">
+    <div class="card topic searchable" data-kw="sns 運用 ルール meltwater 著作権 copyright operating 海外snsの運用ルール" data-topic="1">
+      <span class="ti">1</span>
+      <div class="tx"><b>海外SNSの運用ルール</b><p>SNSの運用ルールが未整備（クリエイティブの著作権の扱いを含む）。運用ツール（Meltwater等）も未導入で、海外向けルール／ツールは今後の検討課題。</p><div class="ref">関連：Case #1</div></div>
+    </div>
+    <div class="card topic searchable" data-kw="cross-brand 横断 共存 apollo アポロ chocorooms 意思決定 owner coexistence ブランド横断・共存企画の意思決定者" data-topic="1">
+      <span class="ti">2</span>
+      <div class="tx"><b>ブランド横断・共存企画の意思決定者</b><p>アポロ・Chocorooms等をHPキャラが宣伝／共存する企画を誰が決めるか未定。当面はHP視点の並置ルールを定義しつつ、横断判断のエスカレ先を別途決める。</p><div class="ref">関連：Case #3・#7</div></div>
+    </div>
+    <div class="card topic searchable" data-kw="panda milk chocolate ミルクチョコ 線引き 判断保留 ambassador quality パンダ × ミルクチョコの線引き（判断保留）" data-topic="1">
+      <span class="ti">3</span>
+      <div class="tx"><b>パンダ × ミルクチョコの線引き（判断保留）</b><p>HPパンダが明治ミルクチョコを持つ／紹介する表現の可否は結論未定。「他商品と離す」等の条件案はあるが、品質期待リスクとアンバサダー文脈のバランスを要議論。</p><div class="ref">関連：Case #3</div></div>
+    </div>
+    <div class="card topic searchable" data-kw="承認 確認 依頼 approval info request 委任 delegation 線引き 承認依頼／確認依頼の線引き" data-topic="1">
+      <span class="ti">4</span>
+      <div class="tx"><b>承認依頼／確認依頼の線引き</b><p>承認依頼と確認依頼の区別が組織的に曖昧。委任設計（現地判断OK・迷えばHP BM相談）と合わせて整理が必要。</p><div class="ref">横断論点</div></div>
+    </div></div>
+      </div>
+      <p class="no-hit" id="nohit" data-t="nohit" style="display: none;">該当する事例・論点が見つかりませんでした。迷う点は加納さんに相談を。</p>
     </section>
 
     <section id="sec-ref">
       <details class="card ref">
-        <summary><span data-t="ref_h"></span><span class="chev" aria-hidden="true">›</span></summary>
-        <div class="ref-body" id="refbody"></div>
+        <summary><span data-t="ref_h">参照索引（ブランドガイドライン A–E）</span><span class="chev" aria-hidden="true">›</span></summary>
+        <div class="ref-body" id="refbody">
+    <div class="ref-row"><span class="rk">A</span>
+      <div class="rt"><b>Hello Panda について</b><p>ブランドステートメント / エクイティ / タグライン / 歴史 / 表現指針（A-5.1 言語・A-5.2 視覚・A-5.3 役割）</p></div></div>
+    <div class="ref-row"><span class="rk">B</span>
+      <div class="rt"><b>ブランドアイデンティティ要素</b><p>プライマリーカラー / ブランドロゴ / タグライン / キャラクター ニコ（B-5）・キミ（B-6）</p></div></div>
+    <div class="ref-row"><span class="rk">C</span>
+      <div class="rt"><b>パッケージデザインシステム</b><p>プライマリーデザイン / 必須要素 / シズル / フレーバー名称・カラー</p></div></div>
+    <div class="ref-row"><span class="rk">D</span>
+      <div class="rt"><b>キャラクターアイデンティティ</b><p>識別（D-3/D-4）/ 動きの留意点（D-5）/ 2D・3D運用（D-14）/ DON'Ts（D-16・D-17）/ 裸品絵柄50種（D-8.1・D-8.2）/ イラストパターン（D-18）</p></div></div>
+    <div class="ref-row"><span class="rk">E</span>
+      <div class="rt"><b>明治ロゴシステム</b><p>ブランドマーク / クリアスペース（E-1.3）/ カラーバリエーション / 誤用例</p></div></div><p class="ref-note">※ ドラフト段階のため、一部のページ番号は資料間で調整中。引用コードは原文どおり表示しています。</p></div>
       </details>
     </section>
 
     <footer>
-      <div class="disc" data-t="disc"></div>
+      <div class="disc" data-t="disc"><b>このアシスタントについて。</b>2つのブランドガイド（Design Guide／Activation Guide、いずれもドラフト）だけに基づいています。ガイドに書かれていないことは判断しません。特に「継続論点」に該当する場合は、必ず Global HP Brand Manager 加納 麻衣（Mai Kano）に相談してください。</div>
       <div class="fmeta">
-        <span data-t="fsrc"></span>
+        <span data-t="fsrc">出典：HP Design Guide (SG V1) ／ HP Activation Guide v1</span>
         <span>·</span>
-        <span data-t="fver">Draft v0.1 · prototype</span>
+        <span data-t="fver">ドラフト v0.1 · プロトタイプ</span>
       </div>
     </footer>
   </main>
@@ -689,5 +823,8 @@ $("#clr").onclick=()=>{ $("#q").value=""; applySearch(); $("#q").focus(); };
 
 renderAll();
 </script>
+
+
+
 </body>
 </html>
